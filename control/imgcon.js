@@ -14,13 +14,4 @@ let add=async(req,res)=>{
         res.send("error in adding")
     }
 }
-let get=async(req,res)=>{
-    try{
-        let data=await im.find({"name":req.params.n})
-        res.json(data)
-    }
-    catch(err){
-        res.send("error in geting")
-    }
-}
-module.exports={add,get}
+module.exports={add}

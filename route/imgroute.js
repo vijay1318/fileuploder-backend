@@ -1,6 +1,6 @@
 let express=require("express")
 const multer = require("multer")
-const {add,get} = require("../control/imgcon")
+const {add} = require("../control/imgcon")
 
 
 let route=new express.Router()
@@ -16,5 +16,4 @@ let storage=multer.diskStorage({
 })
 const upload=multer({storage:storage})
 route.post("/upd",upload.single("file"),add)
-route.get("/get/:n",get)
 module.exports=route
