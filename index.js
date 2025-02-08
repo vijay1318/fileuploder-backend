@@ -1,0 +1,12 @@
+let express=require("express")
+let mongoose=require("mongoose")
+let bodyparser=require("body-parser")
+const route = require("./route/imgroute")
+mongoose.connect("mongodb://127.0.0.1:27017/imgs").then(()=>{
+    console.log("ok ")   
+})
+let app=express()
+app.use(express.json())
+app.use("/imgs",express.static("./upload"))
+app.use("/",route)
+app.listen(5000)
